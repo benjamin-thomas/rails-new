@@ -28,7 +28,8 @@ Then add first commit:
     docker-compose build --no-cache # Do this if rebuilding existing repo
     docker-compose run --rm web bash # check rails version
 
-    docker-compose run web rails new . --force --no-deps --database=postgresql # if requires bundle exec, see buggy 2.7 note above
+    # Webpack option available from rails 5.1
+    docker-compose run web rails new . --force --no-deps --database=postgresql --webpack # if requires bundle exec, see buggy 2.7 note above
     sudo chown -R $USER:$USER .
 
 ## Step 4: Update database config
