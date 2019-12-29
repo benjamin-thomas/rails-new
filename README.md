@@ -13,7 +13,7 @@ Based on the setup workflow at: https://docs.docker.com/compose/rails/
 
 - Dockerfile: lock ruby version + underlying Debian stable version
 - docker-compose.yml: change listening IP (`services > web > ports`)
-- Gemfile: rails version
+- Gemfile: rails version (warning: avoid buggy 2.7 and broken bundler v2 config, see: https://github.com/bundler/bundler/issues/7494)
 
 Then add first commit:
 
@@ -25,7 +25,10 @@ Then add first commit:
 
 ## Step 3: Initialize the new app
 
-    docker-compose run web rails new . --force --no-deps --database=postgresql
+    docker-compose build --no-cache # Do this if rebuilding existing repo
+    docker-compose run --rm web bash # check rails version
+
+    docker-compose run web rails new . --force --no-deps --database=postgresql # if requires bundle exec, see buggy 2.7 note above
     sudo chown -R $USER:$USER .
 
 ## Step 4: Start developing
