@@ -27,3 +27,8 @@ Then add first commit:
 
     docker-compose run web rails new . --force --no-deps --database=postgresql
     sudo chown -R $USER:$USER .
+
+## Step 4: Start developing
+
+    docker-compose up
+    docker-compose run --rm web bash
