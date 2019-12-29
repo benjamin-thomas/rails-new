@@ -13,6 +13,7 @@ Based on the setup workflow at: https://docs.docker.com/compose/rails/
 
 - Dockerfile: lock ruby version + underlying Debian stable version
 - docker-compose.yml: change listening IP (`services > web > ports`)
+- Gemfile: rails version
 
 Then add first commit:
 
