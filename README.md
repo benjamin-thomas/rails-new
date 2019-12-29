@@ -31,6 +31,26 @@ Then add first commit:
     docker-compose run web rails new . --force --no-deps --database=postgresql # if requires bundle exec, see buggy 2.7 note above
     sudo chown -R $USER:$USER .
 
+## Step 4: Update database config
+
+    # config/database.yml
+    default: &default
+      adapter: postgresql
+      encoding: unicode
+      host: db
+      username: postgres
+      password:
+      pool: 5
+
+    development:
+      <<: *default
+      database: my_new_app_development
+
+
+    test:
+      <<: *default
+      database: my_new_app_test
+
 ## Step 4: Start developing
 
     docker-compose up
