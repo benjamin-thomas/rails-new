@@ -3,7 +3,7 @@
 version: '3'
 services:
   db:
-    image: postgres
+    image: postgres # match version with pg_dump's web's version
     env_file:
       - ~/.env/myproject/db.env # minimal requirement: POSTGRES_PASSWORD=use-pwgen
     volumes:
