@@ -4,6 +4,8 @@ version: '3'
 services:
   db:
     image: postgres
+    env_file:
+      - ~/.env/myproject/db.env # minimal requirement: POSTGRES_PASSWORD=use-pwgen
     volumes:
       - db-data:/var/lib/postgresql/data
   web:
