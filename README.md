@@ -57,4 +57,5 @@ Then add first commit:
     docker-compose build [--no-cache] # Rebuild once more, will bundle install...
 
     docker-compose up
+    docker-compose run --rm web ./bin/rake db:create
     docker-compose run --rm web /bin/bash
