@@ -26,7 +26,7 @@ Then add first commit:
 ## Step 3: Initialize the new app
 
     docker-compose build --no-cache # Do this if rebuilding existing repo
-    docker-compose run --rm web bash # check rails version
+    docker-compose run --rm web /bin/bash # check rails version
 
     # Webpack option available from rails 5.1
     docker-compose run web rails new . --force --no-deps --database=postgresql --webpack # if requires bundle exec, see buggy 2.7 note above
@@ -54,5 +54,7 @@ Then add first commit:
 
 ## Step 4: Start developing
 
+    docker-compose build [--no-cache] # Rebuild once more, will bundle install...
+
     docker-compose up
-    docker-compose run --rm web bash
+    docker-compose run --rm web /bin/bash
