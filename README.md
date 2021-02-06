@@ -40,7 +40,7 @@ Then add first commit:
       encoding: unicode
       host: db
       username: postgres
-      password:
+      password: <%= ENV.fetch('POSTGRES_PASSWORD') %>:
       pool: 5
 
     development:
