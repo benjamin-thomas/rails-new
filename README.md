@@ -57,5 +57,9 @@ Then add first commit:
     docker-compose build [--no-cache] # Rebuild once more, will bundle install...
 
     docker-compose up
+    
+    # Ideally with UID=1000
+    docker-compose run --rm --user="$(id -u):$(id -u)" web /bin/bash
+    
     docker-compose run --rm web ./bin/rake db:create
     docker-compose run --rm web /bin/bash
