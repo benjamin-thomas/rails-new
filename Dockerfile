@@ -9,7 +9,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
     postgresql-client \
     yarn \
   && echo "Packages installed."
-
+  
 RUN mkdir /app
 WORKDIR /app
 
@@ -25,6 +25,9 @@ COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 
+RUN useradd --no-create-home --uid 1000 app
+RUN chown -R app:app /app
+USER app
 EXPOSE 3000
 
 # Start the main process.
